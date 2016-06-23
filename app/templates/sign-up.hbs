@@ -1,6 +1,1 @@
-<form {{action 'createUser' on="submit"}}>
-  {{input type="text" value=userEmail placeholder="Email"}}
-  {{input type="text" value=userUsername placeholder="Username"}}
-  {{input type="password" value=userPassword placeholder="Password"}}
-  <button type="submit">Sign up</button>
-</form>
+{{sign-up-form user=model onSubmit=(action 'createUser') errorMessage=errorMessage}}

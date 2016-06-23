@@ -23,6 +23,17 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['ember-simple-auth'] = {
+    store: 'simple-auth-session-store:local-storage',
+  };
+
+  ENV['ember-simple-auth-token'] = {
+    serverTokenEndpoint: 'http://localhost:4000/api/v1/tokens/',
+    routeAfterAuthentication: '/tables',
+    identificationField: 'email',
+    tokenPropertyName: 'data.attributes.value'
+  }
+
 
   if (environment === 'development') {
     ENV.APP.LOG_RESOLVER = true;

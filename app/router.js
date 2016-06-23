@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('tables');
   this.route('table', { path: '/tables/:table_id' });
   this.route('sign-up');
+  this.route('login');
 });
 
 export default Router;
