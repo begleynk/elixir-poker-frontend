@@ -5,6 +5,11 @@
   <button type="submit">Sign up</button>
 </form>
 
-{{#if errorMessage}}
-  {{errorMessage}}
+<p>Errors:</p>
+{{#if errorMessages}}
+  <ul>
+  {{#each errorMessages as |error|}}
+    <li>{{ error.detail }}</li> 
+  {{/each}}
+  </ul>
 {{/if}}

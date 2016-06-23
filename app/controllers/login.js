@@ -11,7 +11,8 @@ export default Ember.Controller.extend({
         password: password
       };
 
-      this.get('session').authenticate(authenticator, credentials)
+      this.get('session')
+      .authenticate(authenticator, credentials)
       .catch((message) => {
         console.log(message);
         this.set('errorMessage', message);

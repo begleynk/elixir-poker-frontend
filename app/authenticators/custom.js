@@ -23,5 +23,17 @@ export default JWTAuthenticator.extend({
       }
     });
   },
+
+  // Monkey patch FTW.
+  // Backend expects current time to be seconds, while the
+  // JWTAuthenticator returns milliseconds, causing the session
+  // to be invalidated on refresh. This should be fixed in
+  // ember-simple-auth-token 2.0
+  //
+  // https://github.com/jpadilla/ember-simple-auth-token/pull/141
+  //
+  getCurrentTime() {
+     return Math.floor((new Date()).getTime() / 1000);
+   },
 });
 

@@ -4,7 +4,8 @@
     <li>{{#link-to 'index' }}Home{{/link-to}}</li>
     <li>{{#link-to 'tables' }}Tables{{/link-to}}</li>
     {{#if session.isAuthenticated}}
-    <li><a {{action 'invalidateSession'}}>Logout</a></li>
+      <li>Logged in as {{ session.currentUser.username }}</li>
+      <li><a {{action 'invalidateSession'}}>Logout</a></li>
     {{else}}
       <li>{{#link-to 'sign-up' }}Sign Up{{/link-to}}</li>
       <li>{{#link-to 'login' }}Login{{/link-to}}</li>

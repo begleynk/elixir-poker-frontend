@@ -6,9 +6,7 @@ export default Ember.Controller.extend({
   actions: {
     createUser(user) {
       let newUser = user;
-      newUser.save().catch((error) => {
-        this.set('errorMessage', error);
-      })
+      newUser.save()
       .then(() => {  
         this.get('session')
         .authenticate('authenticator:custom', {
@@ -16,8 +14,11 @@ export default Ember.Controller.extend({
           password: newUser.get('password')
         })
         .catch((reason) => {
-          this.set('errorMessage', reason.error || reason);
+          this.set('errorMessages', reason.errors);
         });
+      }, (response) => {
+        console.log(response.errors);
+        this.set('errorMessages', response.errors);
       });
     }
   }
