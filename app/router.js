@@ -6,6 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('tables');
+  this.route('table', { path: '/tables/:table_id' });
+  this.route('sign-up');
 });
 
 export default Router;

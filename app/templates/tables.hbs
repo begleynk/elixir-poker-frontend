@@ -1,0 +1,10 @@
+<table class='table'>
+{{#each model as |table|}}
+  <tr>
+      <th>{{#link-to 'table' table}}{{table.id}}{{/link-to}}</th>
+      <td>{{table.blinds}}</td>
+      <td>{{table.size}}</td>
+      <td>{{table.occupiedSeats}}</td>
+  </tr>
+{{/each}}
+</table>
